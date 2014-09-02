@@ -125,6 +125,7 @@ class tx_ttproducts_basket {
 		}
 
 		$basketExtRaw = t3lib_div::_GP('ttp_basket');
+		$_POST['ttp_basket'] = NULL;
 		$this->giftnumber = count ($this->basketExt['gift']) + 1;
 		$newGiftData = t3lib_div::_GP('ttp_gift');
 		$extVars = $this->pibase->piVars['variants'];
