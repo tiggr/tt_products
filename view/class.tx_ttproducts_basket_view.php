@@ -632,8 +632,9 @@ class tx_ttproducts_basket_view {
 			$markerArray['###PRICE_SHIPPING_ONLY_TAX###'] = $priceViewObj->priceFormat($basket->calculatedArray['priceTax']['shipping']-$basket->calculatedArray['priceNoTax']['shipping']);
 
 			$basketUrl = htmlspecialchars(tx_div2007_alpha5::getTypoLink_URL_fh003($this->pibase->cObj,$pid,$this->urlObj->getLinkParams('', array(), TRUE, TRUE, ''),'',''));
+			$infoUrl = htmlspecialchars(tx_div2007_alpha5::getTypoLink_URL_fh003($this->pibase->cObj,$this->conf['PIDinfo'],$this->urlObj->getLinkParams('', array(), TRUE, TRUE, ''),'',''));
 
-			$markerArray['###SHIPPING_SELECTOR###'] = $paymentshippingObj->generateRadioSelect($theCode, 'shipping', $basket->calculatedArray, $basketUrl);
+			$markerArray['###SHIPPING_SELECTOR###'] = $paymentshippingObj->generateRadioSelect($theCode, 'shipping', $basket->calculatedArray, $infoUrl);
 			$imageCode = $this->pibase->cObj->IMAGE($basket->basketExtra['shipping.']['image.']);
 			if ($theCode == 'EMAIL') {
 				tx_div2007_alpha5::fixImageCodeAbsRefPrefix($imageCode);
@@ -650,7 +651,7 @@ class tx_ttproducts_basket_view {
 			$markerArray['###PRICE_PAYMENT_NO_TAX###'] = $priceViewObj->priceFormat($basket->calculatedArray['priceNoTax']['payment']);
 			$markerArray['###PRICE_PAYMENT_ONLY_TAX###'] = $priceViewObj->priceFormat($basket->calculatedArray['priceTax']['payment']-$basket->calculatedArray['priceNoTax']['payment'] );
 
-			$markerArray['###PAYMENT_SELECTOR###'] = $paymentshippingObj->generateRadioSelect($theCode, 'payment', $basket->calculatedArray, $basketUrl);
+			$markerArray['###PAYMENT_SELECTOR###'] = $paymentshippingObj->generateRadioSelect($theCode, 'payment', $basket->calculatedArray, $infoUrl);
 			$imageCode = $this->pibase->cObj->IMAGE($basket->basketExtra['payment.']['image.']);
 			if ($theCode == 'EMAIL') {
 				tx_div2007_alpha5::fixImageCodeAbsRefPrefix($imageCode);
