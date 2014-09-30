@@ -542,7 +542,7 @@ class tx_ttproducts_control {
 								}
 
 								if ($checkRequired == '' && $checkAllowed == '' && $cardRequired == '' && $accountRequired == '' && $paymentErrorMsg == '' &&
-									(empty($pidagb) || $_REQUEST['recs']['personinfo']['agb'] || t3lib_div::_GET('products_payment') || $infoViewObj->infoArray['billing']['agb'])) {
+									(empty($pidagb) || $_REQUEST['recs']['personinfo']['agb'] || t3lib_div::_GP('products_payment') || $infoViewObj->infoArray['billing']['agb'])) {
 
 									if ($this->conf['paymentActivity'] == 'payment' || $this->conf['paymentActivity'] == 'verify')	{
 											$mainMarkerArray['###MESSAGE_PAYMENT_SCRIPT###'] =
